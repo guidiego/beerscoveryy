@@ -1,0 +1,36 @@
+@model IEnumerable<beerscovery.Controllers.ScoreBeer>
+
+@{
+    ViewData["Title"] = "Minhas Avaliações";
+}
+
+<div class="account-header">
+    <a class="active" href="/Score">Minhas Avaliações</a>
+    <a href="/UserStats">Meus Status</a>
+    <a href="/Manage/Index">Minha Conta</a>
+</div>
+
+<div class="table-header score-row">
+    <div>Cerveja</div>
+    <div>Preço</div>
+    <div>Qualidade</div>
+    <div>Amargura</div>
+    <div>Edição</div>
+</div>
+@foreach (var item in Model) {
+    <div class="table-body score-row">
+        <div>@Html.DisplayFor(modelItem => item.BeerName)</div>
+        <div>@Html.DisplayFor(modelItem => item.Price)</div>
+        <div>@Html.DisplayFor(modelItem => item.Quality)</div>
+        <div>@Html.DisplayFor(modelItem => item.Bitterness)</div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-edit">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+    </div>
+}
+

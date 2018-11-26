@@ -1,0 +1,31 @@
+@model IEnumerable<beerscovery.Models.Place>
+
+@{
+    ViewData["Title"] = "Locais";
+}
+
+
+<br>
+<br>
+<a class="btn btn-block btn-default" asp-action="Create">Adicionar Novo</a>
+<br>
+<br>
+<div class="table-header place-row">
+    <div>Nome</div>
+    <div>Endereço</div>
+    <div>Edição</div>
+</div>
+@foreach (var item in Model) {
+    <div class="table-body place-row">
+        <div>@Html.DisplayFor(modelItem => item.LocalName)</div>
+        <div>@Html.DisplayFor(modelItem => item.Address)</div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-edit">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+    </div>
+}

@@ -1,0 +1,20 @@
+@model IEnumerable<beerscovery.Models.Beer>
+
+@{
+    ViewData["Title"] = "Avalie as cervejas do mundo inteiro!";
+}
+
+<div class="beer-input">
+    <input placeholder="Qual cerveja você procura?" />
+</div>
+<div class="beer-grid">
+    @foreach (var item in Model) {
+        <div style="background-image: url('@Html.DisplayFor(modelItem => item.Photo)')" class="beer-item">
+            <div class="title">@Html.DisplayFor(modelItem => item.Name)</div>
+            <div class="kind">@Html.DisplayFor(modelItem => item.Kind)</div>
+            <div class="rate">
+                <a asp-action="Details" asp-route-id="@item.Id">Ver</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,25 @@
+@model IEnumerable<beerscovery.Controllers.Stats>
+
+@{
+    ViewData["Title"] = "Minhas Ações";
+}
+
+<div class="account-header">
+    <a href="/Score">Minhas Avaliações</a>
+    <a class="active" href="/UserStats">Meus Status</a>
+    <a href="/Manage/Index">Minha Conta</a>
+</div>
+
+<div class="table-header place-row">
+    <div>Ação</div>
+    <div>Cerveja</div>
+    <div>Lugar</div>
+</div>
+
+@foreach (var item in Model) {
+    <div class="table-body place-row">
+        <div>@item.GetAction()</div>
+        <div>@Html.DisplayFor(modelItem => item.BeerName)</div>
+        <div>@Html.DisplayFor(modelItem => item.PlaceName)</div>
+    </div>
+}

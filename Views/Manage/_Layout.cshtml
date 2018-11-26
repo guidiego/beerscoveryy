@@ -1,0 +1,22 @@
+﻿@{ 
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="account-header">
+    <a href="/Score">Minhas Avaliações</a>
+    <a href="/UserStats">Meus Status</a>
+    <a class="active" href="/Manage/Index">Minha Conta</a>
+</div>
+
+<div class="manage-grid">
+    <div>
+        @await Html.PartialAsync("_ManageNav")
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

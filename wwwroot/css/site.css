@@ -1,0 +1,413 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #2c3e50;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Ranga', cursive;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+header h1 {
+    font-weight: normal;
+    grid-column: 1;
+    color: #ecf0f1;
+    font-size: 65px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+header h1 span {
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+header .auth {
+    grid-column: 2;
+}
+
+.beer-grid {
+    display: grid;
+    grid-template-columns: 33.3% auto 33.3%;
+    margin-bottom: 25px;
+}
+
+.beer-grid .beer-item {
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0 0 10px rgba(17, 33, 47, 0.6);
+    grid-column: auto;
+    height: 200px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.beer-grid .beer-item .title {
+    padding: 5px 0;
+    text-align: center;
+    background: rgba(44, 62, 80, 0.7490196078431373);
+    color: #ecf0f1;
+    font-size: 20px;
+}
+
+
+.beer-grid .beer-item .kind {
+    display: none;
+}
+
+.beer-grid .beer-item .rate {
+    padding: 68px 0;
+    text-align: center;
+    background: rgba(44, 62, 80, 0.7490196078431373);
+    color: #ecf0f1;
+    font-size: 20px;
+    opacity: 0;
+    transition: .5s;
+}
+
+
+.beer-grid .beer-item:hover .rate {
+    opacity: 1;
+    transition: .5s;
+}
+
+.beer-grid .beer-item .rate a {
+    border: 1px solid #f1c40f;
+    border-radius: 5px;
+    padding: 5px 20px;
+    text-decoration: none;
+    color: #f1c40f;
+}
+
+.beer-input {
+    width: 100%;
+    padding: 20px 0 35px;
+}
+
+input {
+    width: 100%;
+    background: #ecf0f1;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.form-group label {
+    display: block;
+    color: #ecf0f1;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.beer-photo {
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    margin: 20px 0;
+    height: 200px;
+    margin-bottom: 45px;
+}
+
+.beer-info {
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+}
+
+.beer-info * {
+    color: #bdc3c7;
+}
+
+.beer-info .beer-data {
+    grid-column: 1;
+    grid-row: 1
+}
+
+.beer-info .beer-data div, .beer-scores .score {
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.beer-scores {
+    grid-column: 2;
+    grid-row: 1
+}
+
+.beer-scores.extra {
+    grid-column: 3
+}
+
+.my-score {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    position: relative;
+}
+
+.my-score:after {
+    content: "Minha Avaliação";
+    position: absolute;
+    right: 10px;
+    top: -13px;
+    background: #2a3e51;
+    padding: 0 10px;
+}
+
+.beer-info .beer-data div h4, .beer-scores h4 {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.beer-scores .score {
+    color: #bdc3c7;
+}
+
+.to-score {
+    grid-column: 1 / 4;
+    margin-top: 20px;
+}
+
+.to-score a {
+    display: block;
+    text-align: center;
+}
+
+.beer-scores .score-1 i:nth-child(1) {
+    color: #f1c40f;
+}
+
+.beer-scores .score-2 i:nth-child(2),
+.beer-scores .score-2 i:nth-child(1)
+{
+    color: #f1c40f;
+}
+
+.beer-scores .score-3 i:nth-child(3),
+.beer-scores .score-3 i:nth-child(2),
+.beer-scores .score-3 i:nth-child(1) {
+    color: #f1c40f;
+}
+
+.beer-scores .score-4 i:nth-child(4),
+.beer-scores .score-4 i:nth-child(3),
+.beer-scores .score-4 i:nth-child(2),
+.beer-scores .score-4 i:nth-child(1) {
+    color: #f1c40f;
+}
+
+.beer-scores .score-5 i:nth-child(5),
+.beer-scores .score-5 i:nth-child(4),
+.beer-scores .score-5 i:nth-child(3),
+.beer-scores .score-5 i:nth-child(2),
+.beer-scores .score-5 i:nth-child(1) {
+    color: #f1c40f;
+}
+
+.head-data-on, .head-data-off {
+    padding: 36px 0;
+    text-align: right;
+}
+
+.head-data-on a {
+    text-decoration: none;
+    color: #bdc3c7;
+}
+
+.head-data-off a {
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-default {
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+    background: transparent;
+    padding: 20px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-default:hover {
+    background: #f1c40f;
+    color: #2c3e50;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.head-data-on button {
+    background: none;
+    border: none;
+    padding-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f1c40f;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.links a {
+    color: #FFF;
+}
+
+.score-row {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.place-row {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.table-header div, .table-body div {
+    grid-column: auto;
+    text-align: center;
+}
+
+.table-header {
+    color: #ecf0f1;
+    font-weight: bold;
+}
+
+.table-body {
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    padding: 5px 10px;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-danger.btn-big {
+    border: 1px solid #e74c3c;
+    padding: 20px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.btn-edit {
+    background: #27ae60;
+    padding: 5px 10px;
+    color: #FFF;
+    margin-right: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.on-search > div {
+    opacity: 0.25
+}
+
+.on-search > div.focused {
+    opacity: 1;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: #f1c40f;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#where-i-found {
+    height: 350px;
+    margin-bottom: 25px;
+}
+
+.account-header {
+    display: grid;
+    grid-template-columns: 33.3% auto 33.3%;
+}
+
+.account-header a {
+    border-bottom: 3px solid #ecf0f1;
+    color: #ecf0f1;
+    text-align: center;
+    margin: 30px 0 50px;
+    text-decoration: none;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.account-header a.active {
+    border-bottom: 3px solid #f1c40f;
+    color: #f1c40f;
+}
+
+.not-map {
+    grid-column: 1 / 4;
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px;
+    background: #ecf0f1;
+    color: #2c3e50
+}
+
+.not-map a {
+    color: #f1c40f
+}
+
+.delete-msg {
+    color: #fff;
+    font-weight: 100;
+    text-align: center;
+}
+
+.delete-msg span {
+    color: #f1c40f;
+    font-size: 300;
+}
+
+.delete-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.manage-grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}

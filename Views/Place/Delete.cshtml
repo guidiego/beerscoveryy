@@ -1,0 +1,14 @@
+@model beerscovery.Models.Place
+
+@{
+    ViewData["Title"] = "Deletar " + Model.LocalName;
+}
+
+<h3 class="delete-msg">Deseja mesmo deletar <span>@Model.LocalName</span> em <span>@Model.Address</span>?</h3>
+
+<form asp-action="Delete" class="delete-form">
+    <button type="submit" class="btn btn-big btn-danger">Sim, Quero Deletar!</button>
+    <a class="btn btn-default" asp-action="Index">Não, Desejo Voltar!</a>
+    <input type="hidden" asp-for="Id" />
+</form>
+</div>

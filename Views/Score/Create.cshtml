@@ -1,0 +1,52 @@
+@model beerscovery.Models.Score
+
+@inject UserManager<ApplicationUser> UserManager
+    
+@{
+    ViewData["Title"] = "Avaliar";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Preço</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="User" class="control-label"></label>
+                <input asp-for="User" value="@UserManager.GetUserId(User)" class="form-control" />
+                <span asp-validation-for="User" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="Beer" class="control-label"></label>
+                <input asp-for="Beer" value="@ViewData["beer_id"]" class="form-control" />
+                <span asp-validation-for="Beer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quality" class="control-label">Qualidade</label>
+                <input asp-for="Quality" class="form-control" />
+                <span asp-validation-for="Quality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bitterness" class="control-label">Amargura</label>
+                <input asp-for="Bitterness" class="form-control" />
+                <span asp-validation-for="Bitterness" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Submeter Avaliação" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

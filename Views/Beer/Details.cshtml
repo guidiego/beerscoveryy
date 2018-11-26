@@ -1,0 +1,110 @@
+@model beerscovery.Controllers.BeerViewData
+
+@{
+    ViewData["Title"] =  Model.Name + " Detalhes";
+}
+
+<div>
+    <div style="background-image: url('@Model.Photo')" class="beer-photo">
+    </div>
+
+    <div class="beer-info">
+        @if ((bool)Model.HasProfileScore) { 
+            <div class="beer-scores extra">
+                <div class="my-score">
+                    <h4> Preço </h4>
+                    <div class="score score-@Model.ProfileScore.Price">
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                    </div>
+
+                    <h4> Qualidade </h4>
+                    <div class="score score-@Model.ProfileScore.Quality">
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                    </div>
+
+                    <h4> Amargura </h4>
+                    <div class="score @Model.ProfileScore.Bitterness">
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                        <i class="fa fa-beer"></i>
+                    </div>
+                </div>
+            </div>
+        } else {
+            <div class="to-score">
+                <a href="/Score/Create?beer=@Model.Id" class="btn btn-default btn-block">Avaliar</a>
+            </div>
+        }
+        <div class="beer-data">
+            <div>
+                <h4>Nome:</h4>
+                @Model.Name
+            </div>
+            <div>
+                <h4>Tipo:</h4>
+                @Model.Kind
+            </div>
+            <div>
+                <h4>Avaliações:</h4>
+                @Model.ScoreQtd
+            </div>
+        </div>
+        <div class="beer-scores">
+            <h4> Preço Média </h4>
+            <div class="score score-@Model.AverageScore.Price">
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+            </div>
+
+            <h4> Qualidade Média </h4>
+            <div class="score score-@Model.AverageScore.Quality">
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+            </div>
+
+            <h4> Amargura Média </h4>
+            <div class="score @Model.AverageScore.Bitterness">
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+                <i class="fa fa-beer"></i>
+            </div>
+        </div>
+
+        @if ((bool)@Model.HasPlace) {
+            <div id="where-i-found" class="to-score">
+
+            </div>
+        } else {
+            <div class="not-map">
+                Essa cerveja ainda não foi encontrada! Colabore <a href="">aqui!</a>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script>
+    window.PLACES = [
+        @foreach (var place in Model.Places) {
+            @Html.Raw("{name:'"+place.LocalName+"',address:'"+place.Address+"',lat:"+place.Lat+",long:"+place.Lon+"}");
+        }
+    ];
+</script>
